@@ -46,7 +46,12 @@ export function QuickSort(): JSX.Element {
         const stack = [[0, arr.length - 1]];
 
         while (stack.length) {
-            const [start, end] = stack.pop();
+            const pair = stack.pop();
+            if (!pair) continue;
+
+            const [start, end] = pair;
+            if (start >= end) continue;
+
             if (start >= end)
                 continue;
 

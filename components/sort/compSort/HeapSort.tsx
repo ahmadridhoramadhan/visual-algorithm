@@ -67,8 +67,6 @@ export function HeapSort(): JSX.Element {
         }
     };
 
-    console.log(orders);
-
 
 
     const random = () => {

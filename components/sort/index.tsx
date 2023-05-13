@@ -1,39 +1,16 @@
-import { useEffect, useState } from "react";
-import { InputRange } from "@/components/sort/customInput/InputRange";
-
-
-export default function Test() {
-    const bubbleSort = async (arr: number[], setArr: React.Dispatch<React.SetStateAction<number[]>>, setCurrent: React.Dispatch<React.SetStateAction<number | null>>, setCurrent2: React.Dispatch<React.SetStateAction<number | null>>) => {
-        const len = arr.length;
-        for (let i = 0; i < len; i++) {
-            for (let j = 0; j < len - 1 - i; j++) {
-                await new Promise((resolve) => setTimeout(resolve, 50));
-                setCurrent2(arr[j]);
-                if (arr[j] > arr[j + 1]) {
-                    const temp = arr[j];
-                    arr[j] = arr[j + 1];
-                    arr[j + 1] = temp;
-                    setArr([...arr]);
-                }
-            }
-        }
-    };
-
-    return (
-        <Sort sortFunction={bubbleSort} title="Bubble Sort" />
-    )
-
-}
+import { useState } from "react";
+import { InputRange } from "./customInput/InputRange";
+import Link from "next/link";
 
 interface SortProps {
     title: string;
-    sortFunction: (arr: number[], setArr: React.Dispatch<React.SetStateAction<number[]>>, setCurrent: React.Dispatch<React.SetStateAction<number | null>>, setCurrent2: React.Dispatch<React.SetStateAction<number | null>>) => Promise<void>;
+    sortFunction: (arr: number[], setArr: React.Dispatch<React.SetStateAction<number[]>>, setCurrent: React.Dispatch<React.SetStateAction<number | null>>, setCurrent2: React.Dispatch<React.SetStateAction<number | null | number[]>>) => Promise<void>;
 }
 
-export function Sort({ title, sortFunction }: SortProps): JSX.Element {
+export default function Sort({ title, sortFunction }: SortProps): JSX.Element {
     const [orders, setOrders] = useState<number[]>([]);
     const [current, setCurrent] = useState<number | null>(null);
-    const [current2, setCurrent2] = useState<number | null>(null);
+    const [current2, setCurrent2] = useState<number | null | number[]>(null);
     const [sortStart, setSortStart] = useState(false);
 
     const random = () => {
@@ -54,11 +31,11 @@ export function Sort({ title, sortFunction }: SortProps): JSX.Element {
 
     return (
         <div className="px-5 max-w-3xl w-full first:mt-20">
-            <p className="text-2xl md:text-3xl">{title}</p>
+            <p className="text-2xl md:text-3xl capitalize ml-2 mb-1"><Link href="">{title}</Link></p>
             <div className="border-2 border-indigo-700 items-end pt-5 pb-2 px-2 flex gap-px transition-all h-96">
                 {orders.map((order, index) => {
                     return (
-                        <div style={{ height: `${(order / orders.length) * 100}%` }} className={`w-[5%] bg-white ${current == order ? "!bg-green-600" : ""} ${current2 == order ? '!bg-red-700' : ''}`} key={index} data-order={order}></div>
+                        <div style={{ height: `${(order / orders.length) * 100}%` }} className={`w-[5%] bg-white ${current == order ? "!bg-green-600" : ""} ${(current2 instanceof Array) ? (current2[0] == order || current2[1] == order) ? '!bg-red-700' : '' : current2 == order ? '!bg-red-700' : ''}`} key={index} data-order={order}></div>
                     );
                 })}
             </div>

@@ -25,3 +25,15 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+
+@layer components {
+  input[type=range]::-webkit-slider-thumb {
+    appearance: none;
+    -webkit-appearance: none;
+    cursor: ew-resize;
+    width: 25px;
+    height: 25px;
+    background-color: aqua;
+    border-radius: 50%;
+  }
+}

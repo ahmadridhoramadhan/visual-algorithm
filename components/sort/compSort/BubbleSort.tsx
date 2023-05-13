@@ -1,20 +1,11 @@
 import { useEffect, useState } from "react";
+import { InputRange } from "../customInput/InputRange";
 
 export function BubbleSort(): JSX.Element {
     const [orders, setOrders] = useState<number[]>([]);
     const [current, setCurrent] = useState<number | null>(null);
     const [current2, setCurrent2] = useState<number | null>(null);
     const [sortStart, setSortStart] = useState(false);
-
-    useEffect(() => {
-        setOrders([
-            1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
-            11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
-            21, 22, 23, 24, 25, 26, 27, 28, 29, 30,
-            31, 32, 33, 34, 35, 36, 37, 38, 39, 40,
-            41, 42, 43, 44, 45, 46, 47, 48, 49, 50
-        ]);
-    }, []);
 
     const random = () => {
         function randomSort() {
@@ -24,14 +15,13 @@ export function BubbleSort(): JSX.Element {
         setOrders(shuffled);
     };
 
-    const bubbleSort = async (arr: number[], setArr: React.Dispatch<React.SetStateAction<number[]>>) => {
+    const bubbleSort = async (arr: number[], setArr: React.Dispatch<React.SetStateAction<number[]>>, sortStart: boolean) => {
         const len = arr.length;
         for (let i = 0; i < len; i++) {
             for (let j = 0; j < len - 1 - i; j++) {
                 await new Promise((resolve) => setTimeout(resolve, 50));
                 setCurrent2(arr[j]);
                 if (arr[j] > arr[j + 1]) {
-                    // swap values
                     const temp = arr[j];
                     arr[j] = arr[j + 1];
                     arr[j + 1] = temp;
@@ -43,7 +33,7 @@ export function BubbleSort(): JSX.Element {
 
     const handleSort = async () => {
         setSortStart(true);
-        await bubbleSort(orders, setOrders);
+        await bubbleSort(orders, setOrders, sortStart);
         setSortStart(false);
         setCurrent(null);
         setCurrent2(null);
@@ -55,14 +45,17 @@ export function BubbleSort(): JSX.Element {
             <div className="border-2 border-indigo-700 items-end pt-5 pb-2 px-2 flex gap-px transition-all h-96">
                 {orders.map((order, index) => {
                     return (
-                        <div style={{ height: `${(order) * 2}%` }} className={`w-[5%] bg-white ${current == order ? "!bg-green-600" : ""} ${current2 == order ? '!bg-red-700' : ''}`} key={index} data-order={order}></div>
+                        <div style={{ height: `${(order / orders.length) * 100}%` }} className={`w-[5%] bg-white ${current == order ? "!bg-green-600" : ""} ${current2 == order ? '!bg-red-700' : ''}`} key={index} data-order={order}></div>
                     );
                 })}
             </div>
-            <div className="flex justify-between mt-4 px-3">
-                <button className="px-4 py-2 border-2 rounded-xl border-indigo-700 hover:bg-indigo-700 transition-colors" disabled={sortStart} onClick={handleSort}>{sortStart ? 'sorting is in progress' : 'start Sort'}</button>
-                <button className="px-4 py-2 border-2 rounded-xl border-indigo-700 hover:bg-indigo-700 transition-colors" onClick={random}>Random</button>
+            <div className="flex flex-wrap md:flex-nowrap justify-between mt-4 px-3">
+                <button className="px-4 py-2 border-2 rounded-xl border-indigo-700 hover:bg-indigo-700 transition-colors whitespace-nowrap md:order-1 order-2" onClick={handleSort}>{sortStart ? 'sorting is in progress' : 'start Sort'}</button>
+                <InputRange isDisabled={sortStart} setArr={setOrders} />
+                <button className={`px-4 py-2 border-2 rounded-xl border-indigo-700 hover:bg-indigo-700 transition-colors order-3 ${sortStart ? 'opacity-60 cursor-not-allowed' : ''}`} disabled={sortStart} onClick={random}>Random</button>
             </div>
         </div>
     );
 }
+
+
