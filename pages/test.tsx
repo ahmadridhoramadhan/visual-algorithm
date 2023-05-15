@@ -63,33 +63,35 @@ export default function Test() {
                     </div>
 
                     <div className="mt-10">
-                        <p className="text-4xl">Bubble Sort</p>
-                        <p className="break-words ml-2 mt-2">Step-by-step example
+                        <p className="text-4xl pl-4">Bubble Sort</p>
+                        <p className="break-words px-4 ml-2 mt-2">Step-by-step example
                             Bubble sort, sometimes referred to as sinking sort, is a simple sorting algorithm that repeatedly steps through the input list element by element, comparing the current element with the one after it, swapping their values if needed. These passes through the list are repeated until no swaps had to be performed during a pass, meaning that the list has become fully sorted. The algorithm, which is a comparison sort, is named for the way the larger elements "bubble" up to the top of the list. <br /><br />
 
                             This simple algorithm performs poorly in real world use and is used primarily as an educational tool. More efficient algorithms such as quicksort, timsort, or merge sort are used by the sorting libraries built into popular programming languages such as Python and Java.[2][3]</p>
                     </div>
                 </div>
                 <p className="break-words mt-10 p-4"><span className="font-bold text-2xl">Step-by-step example</span> <br />
-                    Take an array of numbers "5 1 4 2 8", and sort the array from lowest number to greatest number using bubble sort. In each step, elements written in bold are being compared. Three passes will be required;<br />
+                    <div className="ml-3">
+                        Take an array of numbers "5 1 4 2 8", and sort the array from lowest number to greatest number using bubble sort. In each step, elements written in bold are being compared. Three passes will be required;<br />
 
-                    <br /><span className="font-bold">First Pass</span> <br />
-                    &emsp;( <span className="font-extrabold text-white">5 1</span> 4 2 8 ) → ( <span className="font-extrabold text-white">1 5</span> 4 2 8 ), Here, algorithm compares the first two elements, and swaps since 5 > 1. <br />
-                    &emsp;( 1 <span className="font-extrabold text-white">5 4</span> 2 8 ) → ( 1 <span className="font-extrabold text-white">4 5</span> 2 8 ), Swap since 5 > 4 <br />
-                    &emsp;( 1 4 <span className="font-extrabold text-white">5 2</span> 8 ) → ( 1 4 <span className="font-extrabold text-white">2 5</span> 8 ), Swap since 5 > 2 <br />
-                    &emsp;( 1 4 2 <span className="font-extrabold text-white">5 8</span> ) → ( 1 4 2 <span className="font-extrabold text-white">5 8</span> ), Now, since these elements are already in order (8 > 5), algorithm does not swap them. <br />
-                    <br /><span className="font-bold">Second Pass</span> <br />
-                    &emsp;( <span className="font-extrabold text-white">1 4</span> 2 5 8 ) → ( <span className="font-extrabold text-white">1 4</span> 2 5 8 ) <br />
-                    &emsp;( 1 <span className="font-extrabold text-white">4 2</span> 5 8 ) → ( 1 <span className="font-extrabold text-white">2 4</span> 5 8 ), Swap since 4 > 2 <br />
-                    &emsp;( 1 2 <span className="font-extrabold text-white">4 5</span> 8 ) → ( 1 2 <span className="font-extrabold text-white">4 5</span> 8 ) <br />
-                    &emsp;( 1 2 4 <span className="font-extrabold text-white">5 8</span> ) → ( 1 2 4 <span className="font-extrabold text-white">5 8</span> ) <br />
-                    Now, the array is already sorted, but the algorithm does not know if it is completed. The algorithm needs one additional whole pass without any swap to know it is sorted. <br />
+                        <br /><span className="font-bold">First Pass</span> <br />
+                        &emsp;( <span className="font-extrabold text-white">5 1</span> 4 2 8 ) → ( <span className="font-extrabold text-white">1 5</span> 4 2 8 ), Here, algorithm compares the first two elements, and swaps since 5 > 1. <br />
+                        &emsp;( 1 <span className="font-extrabold text-white">5 4</span> 2 8 ) → ( 1 <span className="font-extrabold text-white">4 5</span> 2 8 ), Swap since 5 > 4 <br />
+                        &emsp;( 1 4 <span className="font-extrabold text-white">5 2</span> 8 ) → ( 1 4 <span className="font-extrabold text-white">2 5</span> 8 ), Swap since 5 > 2 <br />
+                        &emsp;( 1 4 2 <span className="font-extrabold text-white">5 8</span> ) → ( 1 4 2 <span className="font-extrabold text-white">5 8</span> ), Now, since these elements are already in order (8 > 5), algorithm does not swap them. <br />
+                        <br /><span className="font-bold">Second Pass</span> <br />
+                        &emsp;( <span className="font-extrabold text-white">1 4</span> 2 5 8 ) → ( <span className="font-extrabold text-white">1 4</span> 2 5 8 ) <br />
+                        &emsp;( 1 <span className="font-extrabold text-white">4 2</span> 5 8 ) → ( 1 <span className="font-extrabold text-white">2 4</span> 5 8 ), Swap since 4 > 2 <br />
+                        &emsp;( 1 2 <span className="font-extrabold text-white">4 5</span> 8 ) → ( 1 2 <span className="font-extrabold text-white">4 5</span> 8 ) <br />
+                        &emsp;( 1 2 4 <span className="font-extrabold text-white">5 8</span> ) → ( 1 2 4 <span className="font-extrabold text-white">5 8</span> ) <br />
+                        Now, the array is already sorted, but the algorithm does not know if it is completed. The algorithm needs one additional whole pass without any swap to know it is sorted. <br />
 
-                    <br /><span className="font-bold">Third Pass</span> <br />
-                    &emsp;( <span className="font-extrabold text-white">1 2</span> 4 5 8 ) → ( <span className="font-extrabold text-white">1 2</span> 4 5 8 ) <br />
-                    &emsp;( 1 <span className="font-extrabold text-white">2 4</span> 5 8 ) → ( 1 <span className="font-extrabold text-white">2 4</span> 5 8 ) <br />
-                    &emsp;( 1 2 <span className="font-extrabold text-white">4 5</span> 8 ) → ( 1 2 <span className="font-extrabold text-white">4 5</span> 8 ) <br />
-                    &emsp;( 1 2 4 <span className="font-extrabold text-white">5 8</span> ) → ( 1 2 4 <span className="font-extrabold text-white">5 8</span> )
+                        <br /><span className="font-bold">Third Pass</span> <br />
+                        &emsp;( <span className="font-extrabold text-white">1 2</span> 4 5 8 ) → ( <span className="font-extrabold text-white">1 2</span> 4 5 8 ) <br />
+                        &emsp;( 1 <span className="font-extrabold text-white">2 4</span> 5 8 ) → ( 1 <span className="font-extrabold text-white">2 4</span> 5 8 ) <br />
+                        &emsp;( 1 2 <span className="font-extrabold text-white">4 5</span> 8 ) → ( 1 2 <span className="font-extrabold text-white">4 5</span> 8 ) <br />
+                        &emsp;( 1 2 4 <span className="font-extrabold text-white">5 8</span> ) → ( 1 2 4 <span className="font-extrabold text-white">5 8</span> )
+                    </div>
                 </p>
             </section>
 
