@@ -1,6 +1,6 @@
-import { Dispatch, SetStateAction } from "react"
+import LibSortInterface from "../interface/sortFunction"
 
-export const insertionSort = async (arr: number[], setArr: Dispatch<SetStateAction<number[]>>, setCurrent: React.Dispatch<React.SetStateAction<number | null>>, setCurrent2: React.Dispatch<React.SetStateAction<number | null | number[]>>) => {
+export const insertionSort : LibSortInterface = async (arr, setArr, setCurrent, setCurrent2) => {
     for (let i = 0; i < arr.length; i++) {
         setCurrent(arr[i-1])
         for (let j = i; j > 0; j--) {

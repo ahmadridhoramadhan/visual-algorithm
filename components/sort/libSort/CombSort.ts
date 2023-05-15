@@ -1,6 +1,6 @@
-import { Dispatch, SetStateAction } from "react";
+import LibSortInterface from "../interface/sortFunction";
 
-export const combSort = async (arr: number[], setArr: Dispatch<SetStateAction<number[]>>, setCurrent: React.Dispatch<React.SetStateAction<number | null>>, setCurrent2: React.Dispatch<React.SetStateAction<number | null | number[]>>) => {
+export const combSort: LibSortInterface = async (arr, setArr, setCurrent, setCurrent2) => {
     const shrinkFactor = 1.3;
     let gap = arr.length;
     let swapped = true;

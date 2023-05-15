@@ -1,15 +1,15 @@
-import { Dispatch, SetStateAction } from "react";
+import LibSortInterface from "../interface/sortFunction";
 
-export const selectionSort = async (arr: number[], setArr: Dispatch<SetStateAction<number[]>>, setCurrent: React.Dispatch<React.SetStateAction<number | null>>, setCurrent2: React.Dispatch<React.SetStateAction<number | null | number[]>>) =>{
+export const selectionSort: LibSortInterface = async (arr, setArr, setCurrent, setCurrent2) => {
     const len = arr.length;
     for (let i = 0; i < len - 1; i++) {
         let minIndex = i;
         for (let j = i + 1; j < len; j++) {
             await new Promise((resolve) => setTimeout(resolve, 50));
-            setCurrent2(arr[j]);
+            setCurrent(arr[j]);
             if (arr[j] < arr[minIndex]) {
                 minIndex = j;
-                setCurrent(arr[minIndex]);
+                setCurrent2(arr[minIndex]);
             }
         }
         // swap values

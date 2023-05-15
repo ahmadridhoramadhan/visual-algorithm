@@ -1,12 +1,15 @@
-import { Dispatch, SetStateAction } from "react";
+import LibSortInterface from "../interface/sortFunction";
 
-export const countingSort = async (arr: number[], setArr: Dispatch<SetStateAction<number[]>>, setCurrent: React.Dispatch<React.SetStateAction<number | null>>, setCurrent2: React.Dispatch<React.SetStateAction<number | null | number[]>>) => {
+export const countingSort : LibSortInterface = async (arr, setArr, setCurrent, setCurrent2) => {
     let count = new Array(256).fill(0);
     let output = new Array(arr.length);
 
     for (let i = 0; i < arr.length; i++) {
         count[arr[i]]++;
+        await new Promise((resolve) => setTimeout(resolve, 50));
+        setCurrent2(arr[i])
     }
+    setCurrent2(null)
 
     for (let i = 1; i < 256; i++) {
         count[i] += count[i - 1];
@@ -22,7 +25,7 @@ export const countingSort = async (arr: number[], setArr: Dispatch<SetStateActio
 
     for (let i = 0; i < arr.length; i++) {
         arr[i] = output[i];
+        setArr([...arr]);
     }
-
     setArr([...arr]);
 };

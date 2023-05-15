@@ -1,4 +1,7 @@
-export const bubbleSort = async (arr: number[], setArr: React.Dispatch<React.SetStateAction<number[]>>, setCurrent: React.Dispatch<React.SetStateAction<number | null>>, setCurrent2: React.Dispatch<React.SetStateAction<number | null | number[]>>) => {
+import LibSortInterface from "../interface/sortFunction";
+
+
+export const bubbleSort : LibSortInterface = async (arr, setArr, setCurrent, setCurrent2) => {
     const len = arr.length;
     for (let i = 0; i < len; i++) {
         for (let j = 0; j < len - 1 - i; j++) {

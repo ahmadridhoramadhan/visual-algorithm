@@ -1,6 +1,7 @@
 import { Dispatch, SetStateAction } from "react";
+import LibSortInterface from "../interface/sortFunction";
 
-  export const heapSort = async (arr: number[], setArr:Dispatch<SetStateAction<number[]>>, setCurrent: React.Dispatch<React.SetStateAction<number | null>>, setCurrent2: React.Dispatch<React.SetStateAction<number | null | number[]>>) => {
+export const heapSort : LibSortInterface = async (arr, setArr, setCurrent, setCurrent2) => {
     let n = arr.length;
 
     // Build max heap

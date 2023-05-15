@@ -1,6 +1,6 @@
-import { Dispatch, SetStateAction } from "react";
+import LibSortInterface from "../interface/sortFunction";
 
-export const radixSort = async (arr: number[], setArr: Dispatch<SetStateAction<number[]>>, setCurrent: React.Dispatch<React.SetStateAction<number | null>>, setCurrent2: React.Dispatch<React.SetStateAction<number | null | number[]>>) => {
+export const radixSort : LibSortInterface = async (arr, setArr, setCurrent, setCurrent2) => {
     // Cari nilai maksimum pada array
     const max = Math.max(...arr);
 

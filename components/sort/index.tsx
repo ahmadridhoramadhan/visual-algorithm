@@ -1,11 +1,7 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { InputRange } from "./customInput/InputRange";
 import Link from "next/link";
-
-interface SortProps {
-    title: string;
-    sortFunction: (arr: number[], setArr: React.Dispatch<React.SetStateAction<number[]>>, setCurrent: React.Dispatch<React.SetStateAction<number | null>>, setCurrent2: React.Dispatch<React.SetStateAction<number | null | number[]>>) => Promise<void>;
-}
+import { SortProps } from "./interface/SortProps";
 
 export default function Sort({ title, sortFunction }: SortProps): JSX.Element {
     const [orders, setOrders] = useState<number[]>([]);

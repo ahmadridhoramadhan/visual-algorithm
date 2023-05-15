@@ -1,6 +1,6 @@
-import { Dispatch, SetStateAction } from "react";
+import LibSortInterface from "../interface/sortFunction";
 
-export const quickSort = async (arr: number[], setArr: React.Dispatch<React.SetStateAction<number[]>>, setCurrent: React.Dispatch<React.SetStateAction<number | null>>, setCurrent2: React.Dispatch<React.SetStateAction<number | null | number[]>>) => {
+export const quickSort: LibSortInterface = async (arr, setArr, setCurrent, setCurrent2) => {
     const stack = [[0, arr.length - 1]];
 
     while (stack.length) {
