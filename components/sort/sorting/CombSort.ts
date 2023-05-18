@@ -1,6 +1,6 @@
-import LibSortInterface from "../interface/sortFunction";
+import { sortFunction } from "../../../utils/types/sort/sortFunction";
 
-export const combSort: LibSortInterface = async (arr, setArr, setCurrent, setCurrent2) => {
+export const combSort: sortFunction = async (arr, setArr, setCurrent, setCurrent2) => {
     const shrinkFactor = 1.3;
     let gap = arr.length;
     let swapped = true;

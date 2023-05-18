@@ -1,6 +1,6 @@
-import LibSortInterface from "../interface/sortFunction";
+import { sortFunction } from "../../../utils/types/sort/sortFunction";
 
-export const cocktailShakerSort : LibSortInterface = async (arr, setArr, setCurrent, setCurrent2) => {
+export const cocktailShakerSort : sortFunction = async (arr, setArr, setCurrent, setCurrent2) => {
     let left = 0;
     let right = arr.length - 1;
 

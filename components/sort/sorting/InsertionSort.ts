@@ -1,6 +1,6 @@
-import LibSortInterface from "../interface/sortFunction"
+import { sortFunction } from "../../../utils/types/sort/sortFunction"
 
-export const insertionSort : LibSortInterface = async (arr, setArr, setCurrent, setCurrent2) => {
+export const insertionSort : sortFunction = async (arr, setArr, setCurrent, setCurrent2) => {
     for (let i = 0; i < arr.length; i++) {
         setCurrent(arr[i-1])
         for (let j = i; j > 0; j--) {

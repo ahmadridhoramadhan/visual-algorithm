@@ -1,10 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
-import githubIcon from "../../../public/iconSocialMedia/github.png"
-import InstagramIcon from "../../../public/iconSocialMedia/instagram.png"
-import EmailIcon from "../../../public/iconSocialMedia/email.png"
-import whatsAppIcon from "../../../public/iconSocialMedia/whatsapp.png"
-import linkedInIcon from "../../../public/iconSocialMedia/linkedin.png"
+import githubIcon from "@/public/iconSocialMedia/github.png"
+import InstagramIcon from "@/public/iconSocialMedia/instagram.png"
+import EmailIcon from "@/public/iconSocialMedia/email.png"
+import whatsAppIcon from "@/public/iconSocialMedia/whatsapp.png"
+import linkedInIcon from "@/public/iconSocialMedia/linkedin.png"
 
 
 export default function Footer() {

@@ -1,6 +1,7 @@
-import LibSortInterface from "../interface/sortFunction";
+import { sortFunction } from "../../../utils/types/sort/sortFunction";
 
-export const countingSort : LibSortInterface = async (arr, setArr, setCurrent, setCurrent2) => {
+
+export const countingSort : sortFunction = async (arr, setArr, setCurrent, setCurrent2) => {
     let count = new Array(256).fill(0);
     let output = new Array(arr.length);
 

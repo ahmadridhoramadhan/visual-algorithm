@@ -1,15 +1,15 @@
-import Layout from "@/components/layout";
+import Layout from "@/components/layouts/MainLayout";
 import Sort from "@/components/sort";
-import { bubbleSort } from "@/components/sort/libSort/bubbleSort";
-import { cocktailShakerSort } from "@/components/sort/libSort/CocktailShakerSort";
-import { combSort } from "@/components/sort/libSort/CombSort";
-import { countingSort } from "@/components/sort/libSort/CountingSort";
-import { heapSort } from "@/components/sort/libSort/HeapSort";
-import { insertionSort } from "@/components/sort/libSort/InsertionSort";
-import { quickSort } from "@/components/sort/libSort/QuickSort";
-import { radixSort } from "@/components/sort/libSort/RadixSort";
-import { selectionSort } from "@/components/sort/libSort/SelectionSort";
-import { shellSort } from "@/components/sort/libSort/ShellSort";
+import { bubbleSort } from "@/components/sort/sorting/bubbleSort";
+import { cocktailShakerSort } from "@/components/sort/sorting/CocktailShakerSort";
+import { combSort } from "@/components/sort/sorting/CombSort";
+import { countingSort } from "@/components/sort/sorting/CountingSort";
+import { heapSort } from "@/components/sort/sorting/HeapSort";
+import { insertionSort } from "@/components/sort/sorting/InsertionSort";
+import { quickSort } from "@/components/sort/sorting/QuickSort";
+import { radixSort } from "@/components/sort/sorting/RadixSort";
+import { selectionSort } from "@/components/sort/sorting/SelectionSort";
+import { shellSort } from "@/components/sort/sorting/ShellSort";
 
 
 export default function SortAlgorithm() {

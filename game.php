@@ -144,7 +144,7 @@ $activeCell = [0 => 0, 1 => 0];
 $player = 'X';
 
 while (1) {
-    system('clear');
+    popen('cls', 'w');
     move($stdin, $state, $activeCell, $player);
     echo renderGame($state, $activeCell, $player);
     isWinState($state);

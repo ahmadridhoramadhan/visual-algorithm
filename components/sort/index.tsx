@@ -1,13 +1,22 @@
 import { useEffect, useState } from "react";
 import { InputRange } from "./customInput/InputRange";
 import Link from "next/link";
-import { SortProps } from "./interface/SortProps";
+import sortInterface from "../../utils/interfaces/sort/sortInterface";
+import { useRouter } from "next/router";
 
-export default function Sort({ title, sortFunction }: SortProps): JSX.Element {
+export default function Sort({ title, sortFunction }: sortInterface): JSX.Element {
     const [orders, setOrders] = useState<number[]>([]);
     const [current, setCurrent] = useState<number | null>(null);
     const [current2, setCurrent2] = useState<number | null | number[]>(null);
     const [sortStart, setSortStart] = useState(false);
+    const router = useRouter()
+
+    function camelCase(str: string): string {
+        return str.replace(/(?:^\w|[A-Z]|\b\w|\s+)/g, (match, index) => {
+            if (+match === 0) return ""; // or if (/\s+/.test(match)) for white spaces
+            return index === 0 ? match.toLowerCase() : match.toUpperCase();
+        });
+    }
 
     const random = () => {
         function randomSort() {
@@ -27,7 +36,7 @@ export default function Sort({ title, sortFunction }: SortProps): JSX.Element {
 
     return (
         <div className="px-5 max-w-3xl w-full first:mt-20">
-            <p className="text-2xl md:text-3xl capitalize ml-2 mb-1"><Link href="">{title}</Link></p>
+            <p className="text-2xl md:text-3xl capitalize ml-2 mb-1 "><Link href={`detailSort/${camelCase(title)}`} className="hover:text-transparent bg-clip-text font-semibold hover:text-3xl md:hover:text-4xl bg-gradient-to-br from-indigo-600 to-pink-400 transition-all">{title}</Link></p>
             <div className="border-2 border-indigo-700 items-end pt-5 pb-2 px-2 flex gap-px transition-all h-96">
                 {orders.map((order, index) => {
                     return (

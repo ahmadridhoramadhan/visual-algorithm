@@ -1,6 +1,6 @@
-import LibSortInterface from "../interface/sortFunction";
+import { sortFunction } from "../../../utils/types/sort/sortFunction";
 
-export const radixSort : LibSortInterface = async (arr, setArr, setCurrent, setCurrent2) => {
+export const radixSort : sortFunction = async (arr, setArr, setCurrent, setCurrent2) => {
     // Cari nilai maksimum pada array
     const max = Math.max(...arr);
 

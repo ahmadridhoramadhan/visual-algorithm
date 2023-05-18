@@ -1,8 +1,8 @@
 import { useState } from "react"
 import Link from "next/link"
 import { useRouter } from "next/router"
-import { IconBurgerMenu } from "../../icons/IconBurgerMenu"
-import { IconX } from "../../icons/IconX"
+import { IconBurgerMenu } from "../../../icons/IconBurgerMenu"
+import { IconX } from "../../../icons/IconX"
 
 
 export default function Header() {

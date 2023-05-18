@@ -1,6 +1,7 @@
-import LibSortInterface from "../interface/sortFunction";
+import { sortFunction } from "../../../utils/types/sort/sortFunction";
 
-export const selectionSort: LibSortInterface = async (arr, setArr, setCurrent, setCurrent2) => {
+
+export const selectionSort: sortFunction = async (arr, setArr, setCurrent, setCurrent2) => {
     const len = arr.length;
     for (let i = 0; i < len - 1; i++) {
         let minIndex = i;

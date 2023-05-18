@@ -1,6 +1,6 @@
-import LibSortInterface from "../interface/sortFunction";
+import { sortFunction } from "../../../utils/types/sort/sortFunction";
 
-export const quickSort: LibSortInterface = async (arr, setArr, setCurrent, setCurrent2) => {
+export const quickSort: sortFunction = async (arr, setArr, setCurrent, setCurrent2) => {
     const stack = [[0, arr.length - 1]];
 
     while (stack.length) {

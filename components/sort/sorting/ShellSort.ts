@@ -1,6 +1,7 @@
-import LibSortInterface from "../interface/sortFunction";
+import { sortFunction } from "../../../utils/types/sort/sortFunction";
 
-export const shellSort : LibSortInterface = async (arr, setArr, setCurrent, setCurrent2) => {
+
+export const shellSort : sortFunction = async (arr, setArr, setCurrent, setCurrent2) => {
     let n = arr.length;
     for (let gap = Math.floor(n / 2); gap > 0; gap = Math.floor(gap / 2)) {
         for (let i = gap; i < n; i++) {
